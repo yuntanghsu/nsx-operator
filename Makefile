@@ -170,7 +170,7 @@ TMP_DIR=$$(mktemp -d) ;\
 cd $$TMP_DIR ;\
 go mod init tmp ;\
 echo "Downloading $(2)" ;\
-GOBIN=$(PROJECT_DIR)/bin go install $(2) ;\
+GOBIN=$(PROJECT_DIR)/bin GOPROXY=http://build-artifactory.eng.vmware.com/artifactory/srp-mds-go-remote go install $(2) ;\
 rm -rf $$TMP_DIR ;\
 }
 endef
